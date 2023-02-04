@@ -40,11 +40,15 @@ def rightness(a_count, b_count, answer):
       return 'wrong'
 
 
+first_run = True
 score = 0
 print(art.logo)
+compare_a = rand_account()
+compare_b = rand_account()
 while True:
-  compare_a = rand_account()
-  compare_b = rand_account()
+  if not first_run:
+    compare_a = compare_b
+    compare_b = rand_account()
 
   print(f'Compare A: {format(compare_a)}')
   print(art.vs)
@@ -56,10 +60,11 @@ while True:
     replit.clear()
     print(art.logo)
     print(f"Your answer is right, Current score: {score}")
-    continue
+    first_run = False
  
   else:
     replit.clear()
     print(art.logo)
     print(f"Sorry that's wrong, the final score is {score}")
     break
+
