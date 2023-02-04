@@ -2,9 +2,7 @@
 This project is about Udemy day 14 challenge
 SUPAR HARD!!! BUT REMEMBER THE MORE YOU STRUGGLE, THE SUPERIOR YOU BECOME
 
-IN the game loop if the user gets the answer right, for the next question we have to set 'Compare B' as the A and a new 'B'
-That's where I get stuck
-I'm almost successful except this shit problem
+Yah man I got successful
 """
 
 import art
@@ -67,4 +65,3 @@ while True:
     print(art.logo)
     print(f"Sorry that's wrong, the final score is {score}")
     break
-
