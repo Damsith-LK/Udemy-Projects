@@ -1,7 +1,7 @@
 # Man this became successful than I thought
 
 resources = {
-    'Water': {'amount':300, 'unit': 'ml'},
+    'Water': {'amount': 300, 'unit': 'ml'},
     'Milk': {'amount': 200, 'unit': 'ml'}, 
     'Coffee': {'amount': 100, 'unit': 'g'},
     'Money': {'amount': 0, 'unit': '$'}
@@ -12,6 +12,7 @@ coffee = {
     'latte': {'price': 2.50, 'water': 200, 'milk': 150, 'coffee': 24},
     'cappuccino': {'price': 3.00, 'water': 250, 'milk': 100, 'coffee': 24}
 }
+
 
 def show_report():
     for i, ii in resources.items():
