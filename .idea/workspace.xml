@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="afd7ab09-f746-4796-9a98-61400815f045" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/discord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee_machine.py" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_machine.py" afterDir="false" />
-    </list>
+    <list default="true" id="afd7ab09-f746-4796-9a98-61400815f045" name="Changes" comment="Renamed day 16 to day_16 since it had some errors in Terminal" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,6 +35,14 @@
       <option name="presentableId" value="Default" />
       <updated>1675500261159</updated>
     </task>
+    <task id="LOCAL-00001" summary="Renamed day 16 to day_16 since it had some errors in Terminal">
+      <created>1675768862703</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1675768862704</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -51,5 +55,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Renamed day 16 to day_16 since it had some errors in Terminal" />
+    <option name="LAST_COMMIT_MESSAGE" value="Renamed day 16 to day_16 since it had some errors in Terminal" />
   </component>
 </project>
