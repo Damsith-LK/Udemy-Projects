@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="afd7ab09-f746-4796-9a98-61400815f045" name="Changes" comment="Updated README.md">
-      <change afterPath="$PROJECT_DIR$/day_17/classes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day_17/quiz_game/data.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day_17/quiz_game/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day_17/quiz_game/question_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day_17/quiz_game/quiz_brain.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/discord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="afd7ab09-f746-4796-9a98-61400815f045" name="Changes" comment="Completed day 17 of Udemy Course">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675842950296</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Completed day 17 of Udemy Course">
+      <created>1675851531015</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1675851531015</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -141,6 +142,7 @@
     <MESSAGE value="Renamed day 16 to day_16 since it had some errors in Terminal" />
     <MESSAGE value="Testing commit" />
     <MESSAGE value="Updated README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated README.md" />
+    <MESSAGE value="Completed day 17 of Udemy Course" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed day 17 of Udemy Course" />
   </component>
 </project>
