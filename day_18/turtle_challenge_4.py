@@ -6,20 +6,23 @@ New things to do:
 """
 
 import turtle
-from random import choice
+from random import choice, randint
 
-colors = ['red', 'green', 'black', 'blue', 'navy', 'orange', 'gold', 'cyan', 'coral', 'yellow', 'violet', 'chartreuse']
+# colors = ['red', 'green', 'black', 'blue', 'navy', 'orange', 'gold', 'cyan', 'coral', 'yellow', 'violet', 'chartreuse']
 
 my_turtle = turtle.Turtle()
 my_turtle.pensize(9)
 my_turtle.speed(10)
-
+turtle.colormode(255)
 # Generating a random walk
 directions = ['forward', 'left', 'right']
 for _ in range(1000):
-    rand_color = choice(colors)
+    r = randint(0, 255)
+    b = randint(0, 255)
+    g = randint(0, 255)
+
     rand_dir = choice(directions)
-    my_turtle.pencolor(rand_color)
+    my_turtle.pencolor((r, g, b))
     if rand_dir == 'forward':
         my_turtle.forward(20)
     elif rand_dir == 'right':
@@ -31,4 +34,6 @@ for _ in range(1000):
 
 
 screen = turtle.Screen()
+screen.title("Random Walk ^_^")
+screen.screensize(1000, 1000)
 screen.exitonclick()
