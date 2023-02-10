@@ -7,7 +7,7 @@ screen = turtle.Screen()
 screen.title("Spirograph")
 
 
-# Generating random rgb colors
+# Generating random rgb colors:
 def rand_rgb():
     colors = (randint(0, 255), randint(0, 255), randint(0, 255))
     return colors
