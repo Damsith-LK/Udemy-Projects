@@ -9,6 +9,9 @@ import turtle
 from random import choice, randint
 
 # colors = ['red', 'green', 'black', 'blue', 'navy', 'orange', 'gold', 'cyan', 'coral', 'yellow', 'violet', 'chartreuse']
+screen = turtle.Screen()
+screen.title("Random Walk ^_^")
+screen.screensize(1000, 1000)
 
 my_turtle = turtle.Turtle()
 my_turtle.pensize(9)
@@ -32,8 +35,4 @@ for _ in range(1000):
         my_turtle.left(90)
         my_turtle.forward(20)
 
-
-screen = turtle.Screen()
-screen.title("Random Walk ^_^")
-screen.screensize(1000, 1000)
 screen.exitonclick()
