@@ -5,3 +5,4 @@
 - Day 16 work
 - Day 17 work
 - Day 18 work (Including hirst challenge)
+- Day 19 work (Including turtle race)
