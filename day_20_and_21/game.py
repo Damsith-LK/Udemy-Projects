@@ -12,9 +12,11 @@ Here are the steps:
 
 import turtle
 from snake import Snake
+from time import sleep
 
 screen = turtle.Screen()
 screen.title('Snake Game')
+screen.tracer(0)
 screen.bgcolor('black')
 screen.setup(width=1000, height=700)
 
@@ -28,6 +30,10 @@ screen.onkey(snake.left, 'Left')
 game_continue = True
 
 while game_continue:
+    screen.update()
+    sleep(0.1)
+
     snake.move()
+
 
 screen.exitonclick()
