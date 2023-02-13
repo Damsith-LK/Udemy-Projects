@@ -6,7 +6,7 @@
 - Day 17 work (Quiz Game)
 - Day 18 work (Including hirst challenge)
 - Day 19 work (Including turtle race)
-- Day 20 and 21 work (The snake game) - Not completed
+- Day 20 and 21 work (The snake game)
 ______
 
 ## Pictures of my projects
@@ -28,4 +28,10 @@ ______
 - Day 19
 
 ![image](https://user-images.githubusercontent.com/113516635/218295623-cb4ce6bd-b119-431e-8142-5b1154101d34.png)
+
+
+- Day 20 and 21
+
+![image](https://user-images.githubusercontent.com/113516635/218411318-1942455d-c36d-44aa-8394-8a77f9077bf3.png)
+
 
