@@ -13,7 +13,7 @@ Here are the steps:
 
 import turtle
 from snake import Snake
-from food import Food
+from food import Food, SpecialFood
 from scoreboard import ScoreBoard
 from time import sleep
 
@@ -27,6 +27,7 @@ screen.setup(width=1000, height=700)
 snake = Snake()
 food = Food()
 scoreboard = ScoreBoard()
+special_food = SpecialFood()
 
 screen.listen()
 screen.onkey(snake.up, 'Up')
@@ -47,6 +48,11 @@ while game_continue:
         food.new_food()
         snake.extend()
         scoreboard.update_score()
+
+    if scoreboard.score % 6 == 0:
+        special_food.special_food()
+        if snake.head.distance(special_food) < 15:
+            scoreboard.update_score_for_special_fruit()
 
     # Detect collision with wall
     if snake.head.xcor() > 490 or snake.head.xcor() < -490 or snake.head.ycor() > 340 or snake.head.ycor() < -340:

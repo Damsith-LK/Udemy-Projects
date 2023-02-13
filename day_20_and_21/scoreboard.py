@@ -15,6 +15,10 @@ class ScoreBoard(Turtle):
         self.score += 1
         self.clear()
 
+    def update_score_for_special_fruit(self):
+        self.score += 6
+        self.clear()
+
     def display_score(self):
         self.write(arg=f'Score: {self.score}', move=False, align='center', font=('Ariel', 25, 'bold'))
 
