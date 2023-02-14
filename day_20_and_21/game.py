@@ -11,9 +11,11 @@ Here are the steps:
 8. Extend the snake - Done
 """
 
+# The new feature special_food is pending but the difficulty modes seem to be good
+
 import turtle
 from snake import Snake
-from food import Food, SpecialFood
+from food import Food
 from scoreboard import ScoreBoard
 from time import sleep
 
@@ -23,11 +25,13 @@ screen.title('Snake Game')
 screen.tracer(0)
 screen.bgcolor('black')
 screen.setup(width=1000, height=700)
+difficulty = screen.textinput('Choose your difficulty', 'What do you choose (easy or medium or hard or EXTREME or GOD').lower()
+difficulties = {'easy': 0.2, 'medium': 0.097, 'hard': 0.07, 'extreme': 0.04, 'god': 0.01}
 
 snake = Snake()
 food = Food()
 scoreboard = ScoreBoard()
-special_food = SpecialFood()
+# special_food = SpecialFood()
 
 screen.listen()
 screen.onkey(snake.up, 'Up')
@@ -40,7 +44,10 @@ game_continue = True
 while game_continue:
     scoreboard.display_score()
     screen.update()
-    sleep(0.1)
+    if difficulty not in difficulties.keys():
+        game_continue = False
+
+    sleep(difficulties[difficulty])
     snake.move()
 
     # Detect collision with food
@@ -49,10 +56,10 @@ while game_continue:
         snake.extend()
         scoreboard.update_score()
 
-    if scoreboard.score % 6 == 0:
-        special_food.special_food()
-        if snake.head.distance(special_food) < 15:
-            scoreboard.update_score_for_special_fruit()
+    # if scoreboard.score % 6 == 0:
+    #     # special_food.special_food()
+    #     if snake.head.distance(special_food) < 15:
+    #         scoreboard.update_score_for_special_fruit()
 
     # Detect collision with wall
     if snake.head.xcor() > 490 or snake.head.xcor() < -490 or snake.head.ycor() > 340 or snake.head.ycor() < -340:
