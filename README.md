@@ -6,7 +6,8 @@
 - Day 17 work (Quiz Game)
 - Day 18 work (Including hirst challenge)
 - Day 19 work (Including turtle race)
-- Day 20 and 21 work (The snake game)
+- The Snake Game (Day 20 and 21)
+- The Pong Game (Day 22)
 ______
 
 ## Pictures of my projects

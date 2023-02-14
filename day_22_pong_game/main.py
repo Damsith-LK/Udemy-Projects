@@ -2,11 +2,11 @@
 Here are the steps:
 1. Setup the two paddles in the either sides of the game window - Done
 2. Setup the ball movement - Done
-3. Setup the line in the middle
+3. Setup the line in the middle - Done
 4. Detect collisions with paddles - Done
 5. Detect when the ball misses the paddle - Done
-6. Keeping the score
-7. Changing ball speed
+6. Keeping the score - Done
+7. Changing ball speed (Everytime it hits a paddle) - Done
 """
 
 import turtle
@@ -49,34 +49,37 @@ game_continue = True
 
 # Game loop
 while game_continue:
-    sleep(0.1)
+    sleep(ball.move_delay)
     scoreboard.display_score()
     screen.update()
     ball.move()
 
-    if ball.ycor() > 330 or ball.ycor() < -330:
+    if ball.ycor() > 327 or ball.ycor() < -327:
         ball.bounce_y()
 
     # Detecting collision with right paddle
-    if ball.xcor() > 450 and right_paddle.distance(ball) < 90:
+    if ball.xcor() > 450 and right_paddle.distance(ball) < 110:
         ball.bounce_x()
+
     # Missing the right paddle
     elif ball.xcor() > 460:
         scoreboard.left_score += 1
         scoreboard.update_score()
         ball.speed('fastest')
         ball.goto(0, 0)
-        sleep(3)
-
+        sleep(2)
+        ball.reset_delay()
     # Detecting the collision with left paddle
-    if ball.xcor() < -460 and left_paddle.distance(ball) < 90:
+    if ball.xcor() < -460 and left_paddle.distance(ball) < 110:
         ball.bounce_x()
+
     # Missing the left paddle
     elif ball.xcor() < -460:
         scoreboard.right_score += 1
         scoreboard.update_score()
         ball.speed('fastest')
         ball.goto(0, 0)
-        sleep(3)
+        sleep(2)
+        ball.reset_delay()
 
 screen.exitonclick()
