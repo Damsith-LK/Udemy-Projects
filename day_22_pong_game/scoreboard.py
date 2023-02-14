@@ -10,8 +10,12 @@ class Scoreboard(Turtle):
         self.speed('fastest')
         self.penup()
         self.color('white')
-        self.goto(0, 275)
+        self.goto(0, 240)
         self.hideturtle()
 
     def display_score(self):
-        self.write(arg=f'{self.left_score}         {self.right_score}', align='center', move=False, font=('Courier', 50, 'bold'))
+        self.write(arg=f'{self.left_score}     {self.right_score}', align='center', move=False, font=('Courier', 80, 'normal'))
+
+    def update_score(self):
+        self.clear()
+        self.write(arg=f'{self.left_score}     {self.right_score}', align='center', move=False, font=('Courier', 80, 'normal'))
