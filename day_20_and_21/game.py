@@ -40,12 +40,12 @@ screen.onkey(snake.right, 'Right')
 screen.onkey(snake.left, 'Left')
 
 game_continue = True
+if difficulty not in difficulties.keys():
+    game_continue = False
 
 while game_continue:
     scoreboard.display_score()
     screen.update()
-    if difficulty not in difficulties.keys():
-        game_continue = False
 
     sleep(difficulties[difficulty])
     snake.move()
