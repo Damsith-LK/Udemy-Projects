@@ -13,6 +13,7 @@ class Ball(Turtle):
         self.speed('normal')
         self.x_speed = 10
         self.y_speed = 10
+        self.move_delay = 0.1
 
     def move(self):
         new_x = self.xcor() + self.x_speed
@@ -24,3 +25,7 @@ class Ball(Turtle):
 
     def bounce_x(self):
         self.x_speed *= -1
+        self.move_delay = round(self.move_delay * 0.2, 5)
+
+    def reset_delay(self):
+        self.move_delay = 0.1
