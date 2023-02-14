@@ -19,3 +19,7 @@ class Scoreboard(Turtle):
     def update_score(self):
         self.clear()
         self.write(arg=f'{self.left_score}     {self.right_score}', align='center', move=False, font=('Courier', 80, 'normal'))
+
+    def win(self, side, name):
+        self.goto(0, 0)
+        self.write(f'The {side} side player {name} won!!!', align='center', move=False, font=('Times New Roman', 50, 'Bold'))
