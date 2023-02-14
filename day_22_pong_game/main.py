@@ -9,6 +9,8 @@ Here are the steps:
 7. Changing ball speed (Everytime it hits a paddle) - Done
 """
 
+# Add new features: 1. Pong game has a final win or lose 2. Get the names of players from each side
+
 import turtle
 from paddles import Paddle
 from ball import Ball
