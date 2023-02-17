@@ -22,4 +22,8 @@ class Scoreboard(Turtle):
 
     def win(self, side, name):
         self.goto(0, 0)
-        self.write(f'The {side} side player {name} won!!!', align='center', move=False, font=('Times New Roman', 50, 'Bold'))
+        self.write(f'The {side} side player {name} won!!!', align='center', move=False, font=('Times New Roman', 40, 'bold'))
+
+    def draw(self):
+        self.goto(0, 0)
+        self.write(f"That's a goddamn draw!!!")

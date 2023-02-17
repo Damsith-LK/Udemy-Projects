@@ -93,4 +93,12 @@ while game_continue:
             game_continue = False
             scoreboard.win('left', left_player)
 
+        elif scoreboard.left_score < scoreboard.right_score:
+            game_continue = False
+            scoreboard.win('right', right_player)
+
+        else:
+            game_continue = False
+
+
 screen.exitonclick()
