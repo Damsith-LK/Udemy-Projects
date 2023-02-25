@@ -5,10 +5,11 @@ screen = turtle.Screen()
 screen.title("Turtle Race")
 screen.setup(width=500, height=400)
 screen.bgcolor('black')
-bet = screen.textinput(title="Make your bet", prompt="Which turtle will win. Enter a color: ").lower()
+player1 = screen.textinput(title="Player 1 Make your bet", prompt="Which turtle will win. Enter a color: ").lower()
+player2 = screen.textinput(title="Player 2 Make your bet", prompt="Which turtle will win. Enter a color: ").lower()
 colors = ['red', 'green', 'yellow', 'purple', 'orange', 'blue']
 
-if bet not in colors:
+if player1 not in colors or player2 not in colors or player1 == player2:
     screen.clear()
     quit()
 
@@ -75,10 +76,12 @@ def main():
             first = 'blue'
             break
 
-    if bet == first:
-        print(f'Your bet was right. The first was {first}')
+    if player1 == first:
+        print(f'Player 1 - Your bet was right. The first was {first}')
+    elif player2 == first:
+        print(f'Player 2 - Your bet was right. The first was {first}')
     else:
-        print(f'Your bet was wrong. The first was {first}')
+        print(f'Both bets were wrong. The first was {first}')
 
 
 main()
