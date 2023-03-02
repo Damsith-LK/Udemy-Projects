@@ -2,7 +2,6 @@ from turtle import Turtle
 from random import randint, choice
 
 COLORS = ['orange', 'yellow', 'cyan', 'blue', 'green', 'brown', 'red', 'purple', 'pink']
-STARTING_SPEED = 5
 
 
 class Cars(Turtle):
@@ -10,6 +9,7 @@ class Cars(Turtle):
     def __init__(self):
         super().__init__()
         self.cars = []
+        self.move_speed = 5
         self.color('white')
 
     def create_cars(self):
@@ -26,4 +26,5 @@ class Cars(Turtle):
 
     def move(self):
         for car in self.cars:
-            car.backward(STARTING_SPEED)
+            new_x = car.xcor() - self.move_speed
+            car.goto(new_x, car.ycor())
