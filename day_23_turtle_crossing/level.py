@@ -13,6 +13,7 @@ class Level(Turtle):
         self.color('black')
         self.write(arg=f"Level: {self.level}", move=False, align='center', font=('Ariel', 20, 'bold'))
 
-    def update(self):
+    def increase_score(self):
+        self.level += 1
         self.clear()
         self.write(arg=f'Level: {self.level}', move=False, align='center', font=('Ariel', 20, 'bold'))
