@@ -8,6 +8,7 @@ class Cars(Turtle):
 
     def __init__(self):
         super().__init__()
+        self.hideturtle()
         self.cars = []
         self.move_speed = 5
         self.color('white')
@@ -21,8 +22,11 @@ class Cars(Turtle):
             new_car.shape('square')
             new_car.shapesize(stretch_len=2, stretch_wid=1)
             new_car.color(choice(COLORS))
-            new_car.goto(300, randint(-280, 280))
+            new_car.goto(300, randint(-260, 280))
             self.cars.append(new_car)
+
+    def increase_speed(self):
+        self.move_speed += 10
 
     def move(self):
         for car in self.cars:

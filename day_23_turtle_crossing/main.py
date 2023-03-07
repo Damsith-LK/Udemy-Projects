@@ -8,8 +8,8 @@ Steps:
 2. Set up the turtle behaviour - Done
 3. Set up the cars - Done
 4. Detect turtle collision with cars (Game over) - Done
-5. Keep level
-6. Speed up the cars when level goes up
+5. Keep level - Done
+6. Speed up the cars when level goes up - Done
 """
 
 import turtle
@@ -46,13 +46,13 @@ while game_continue:
     for i in cars.cars:
         if i.distance(player) < 27:
             game_continue = False
+            level.game_over()
 
     # detecting level up
     if player.ycor() >= 290:
         player.speed('fastest')
         player.goto(0, -290)
-        cars.move_speed += 1
-        level.level += 1
-        level.update()
+        cars.increase_speed()
+        level.increase_level()
 
 screen.exitonclick()
