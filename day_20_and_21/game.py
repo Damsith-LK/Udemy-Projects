@@ -12,6 +12,7 @@ Here are the steps:
 """
 
 # The new feature special_food is pending but the difficulty modes seem to be good
+# Also adding a **Highest score** thing
 
 import turtle
 from snake import Snake
