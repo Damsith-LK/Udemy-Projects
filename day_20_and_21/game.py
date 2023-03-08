@@ -12,7 +12,7 @@ Here are the steps:
 """
 
 # The new feature special_food is pending but the difficulty modes seem to be good
-# Also adding a **Highest score** thing
+# Also adding a **Highest score** thing - success
 
 import turtle
 from snake import Snake
@@ -72,6 +72,10 @@ while game_continue:
         if snake.head.distance(i) < 10:
             game_continue = False
             scoreboard.game_over()
+
+    # Updating the high score
+    if scoreboard.score > scoreboard.highest_score:
+        scoreboard.reset_highest_score()
 
 
 screen.exitonclick()
