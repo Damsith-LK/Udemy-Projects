@@ -1,4 +1,5 @@
 # 😎 Things I have added here so far:
+- Mail Merge Challenge (Day 24) ***~~BTW There is a small typo in the commit b7f9b53507e4c2a2f774372bacd9fbea67d83c92~~***
 - Turtle Crossing (Day 23)
 - The Pong Game (Day 22)
 - The Snake Game (Day 20 and 21)
