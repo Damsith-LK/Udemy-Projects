@@ -1,8 +1,13 @@
-#TODO: Create a letter using starting_letter.txt 
-#for each name in invited_names.txt
-#Replace the [name] placeholder with the actual name.
-#Save the letters in the folder "ReadyToSend".
-    
-#Hint1: This method will help you: https://www.w3schools.com/python/ref_file_readlines.asp
-    #Hint2: This method will also help you: https://www.w3schools.com/python/ref_string_replace.asp
-        #Hint3: THis method will help you: https://www.w3schools.com/python/ref_string_strip.asp
+with open(r"C:\Users\Sampath Wijekoon\PycharmProjects\Udemy Projects\day_24\Mail Merge Project Start\Input\Letters\starting_letter.txt") as file:
+    content = file.read()
+
+with open(r"C:\Users\Sampath Wijekoon\PycharmProjects\Udemy Projects\day_24\Mail Merge Project Start\Input\Names\invited_names.txt") as file:
+    names = []
+    for line in file:
+        repl_line = line.replace("\n", "")
+        names.append(repl_line)
+
+for name in names:
+    with open(rf"C:\Users\Sampath Wijekoon\PycharmProjects\Udemy Projects\day_24\Mail Merge Project Start\Output\ReadyToSend\letter_to_{name}", "w") as file:
+        ready = content.replace('[name]', name)
+        file.write(ready)
