@@ -21,4 +21,41 @@ print('\n')
 data = pd.read_csv('weather_data.csv')
 print(data)
 print('\n')
-print(data['temp'])
+temps = data['temp']
+print(temps)
+print('\n -------------------------------------------------------------------- \n')
+
+
+# Challenge 1 - Calculate the average temperature
+temp_list = temps.to_list()
+average = round(sum(temp_list) / len(temp_list), 3)
+print(f"The average of the temperatures is {average}")
+
+# Can be done lot easier
+print(f"In the easier way: {round(temps.mean(), 3)}")
+print('\n--------------------------------------------------------------------------\n')
+
+
+# Challenge 2 - Get the maximum value of temperatures
+print(f"The maximum value of temperatures is {temps.max()}")
+print('\n--------------------------------------------------------------------------\n')
+
+
+# Challenge 3 - Print the row of data which has the highest temperature
+print(data[data.temp == data['temp'].max()])
+print('\n--------------------------------------------------------------------------\n')
+
+
+# Challenge 4 - Convert Monday's temperature to Fahrenheit
+monday_temp = data[data.day == "Monday"].temp
+print(monday_temp * 1.8 + 32)
+print('\n--------------------------------------------------------------------------\n')
+
+
+# Creating a data frame from a dict
+anime_dict = {
+    "animes": ["Demon Slayer", "Attack on Titan", "One Piece", "One Punch Man", "Jujutsu Kaisen"],
+    "Main Characters": ["Tanjiro", "Eren", "Luffy", "Saitama", "Itadori"]
+}
+data_frame = pd.DataFrame(anime_dict)
+print(data_frame)
