@@ -1,4 +1,5 @@
 # 😎 Things I have added here so far:
+- Day 25 work (Reading CSV, Pandas and the US states game)
 - Mail Merge Challenge (Day 24) ***~~BTW There is a small typo in the commit b7f9b53507e4c2a2f774372bacd9fbea67d83c92~~***
 - Turtle Crossing (Day 23)
 - The Pong Game (Day 22)
@@ -14,6 +15,12 @@
 ______
 
 ## Pictures of my projects 🖼️
+
+- Day 25
+
+![image](https://user-images.githubusercontent.com/113516635/225914547-cf4d9ba1-d45b-461f-9520-fdbb80294c87.png)
+
+
 
 - Day 23
 
