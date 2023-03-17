@@ -6,13 +6,15 @@ Steps for this States game
 3. Check if the answer is among 50_states.csv - Done
 4. Write correct answers into map - Done
 5. Use a loop to allow the user to keep answering - Done
-6. Record the correct answers in a list
-7. Keep track of the score
+6. Record the correct answers in a list - Done
+7. Keep track of the score - Done
+8. Game over when all the states are been named - Done
 """
 
 
 import turtle
 import pandas as pd
+from time import sleep
 
 # Setting the screen
 screen = turtle.Screen()
@@ -33,14 +35,11 @@ y = data["y"].to_list()
 t = turtle.Turtle(visible=False)
 t.penup()
 
-game_continue = True
-
 # Game loop
 correct_states = []
 
-while game_continue:
-    answer = screen.textinput(title="Answer the states", prompt="Enter a state name ").title()
-    print(answer)
+while len(correct_states) < 50:
+    answer = screen.textinput(title=f"{len(correct_states)}/50 States Correct", prompt="Enter a state name ").title()
 
     # Checking the rightness
     if answer in states:
@@ -48,8 +47,11 @@ while game_continue:
         t.goto(x[ind], y[ind])
         t.write(arg=answer, move=False, align='center', font=("Ariel", 7, "bold"))
 
-    else:
-        print("bad")
+        if answer not in correct_states:
+            correct_states.append(answer)
 
+t.goto(0, 0)
+t.write(arg="GAME OVER. YOU WON", move=False, align="center", font=("Ariel", 15, "bold"))
+sleep(4)
 
 screen.exitonclick()
