@@ -9,6 +9,8 @@ Steps for this States game
 6. Record the correct answers in a list - Done
 7. Keep track of the score - Done
 8. Game over when all the states are been named - Done
+
+Additional objective - when prompted "Exit", close the game and save the not answered states to a file called states_to_learn.csv
 """
 
 
@@ -41,6 +43,16 @@ correct_states = []
 while len(correct_states) < 50:
     answer = screen.textinput(title=f"{len(correct_states)}/50 States Correct", prompt="Enter a state name ").title()
 
+    # The additional objective here
+    if answer == "Exit":
+        missing_states = []
+        for state in states:
+            if state not in correct_states:
+                missing_states.append(state)
+        data_frame = pd.DataFrame(missing_states)
+        data_frame.to_csv("states_to_learn.csv")
+        quit()
+
     # Checking the rightness
     if answer in states:
         ind = states.index(answer)
@@ -53,5 +65,3 @@ while len(correct_states) < 50:
 t.goto(0, 0)
 t.write(arg="GAME OVER. YOU WON", move=False, align="center", font=("Ariel", 15, "bold"))
 sleep(4)
-
-screen.exitonclick()
