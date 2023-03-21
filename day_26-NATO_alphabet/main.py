@@ -1,18 +1,8 @@
-import pandas
+import pandas as pd
 
-student_dict = {
-    "student": ["Angela", "James", "Lily"], 
-    "score": [56, 76, 98]
-}
+content = pd.read_csv("nato_phonetic_alphabet.csv")
 
-# Looping through dictionaries:
-for (key, value) in student_dict.items():
-    # Access key and value
-    pass
-
-
-student_data_frame = pandas.DataFrame(student_dict)
-
-nato_alphabet = {index: row for (index, row) in student_data_frame.iterrows()}
-print(nato_alphabet)
-
+user_input = input("Enter a word: ")
+nato_dict = {value.letter: value.code for (key, value) in content.iterrows()}
+nato_phonetic_list = [nato_dict[i.upper()] for i in user_input if i.upper() in nato_dict.keys()]
+print(nato_phonetic_list)
