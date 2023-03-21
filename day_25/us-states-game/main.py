@@ -45,10 +45,7 @@ while len(correct_states) < 50:
 
     # The additional objective here
     if answer == "Exit":
-        missing_states = []
-        for state in states:
-            if state not in correct_states:
-                missing_states.append(state)
+        missing_states = [i for i in states if i not in correct_states]
         data_frame = pd.DataFrame(missing_states)
         data_frame.to_csv("states_to_learn.csv")
         quit()
