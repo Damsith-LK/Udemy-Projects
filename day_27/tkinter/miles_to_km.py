@@ -26,6 +26,11 @@ def cal():
     kilo_label.config(text=round(float(entry.get()) * 1.60934, 2))
 
 
+def exit():
+    if exit_or_not.get() == 1:
+        quit()
+
+
 # The entry field here
 entry = tk.Entry()
 entry.place(x=200, y=50, anchor='center', width=100, height=30)
@@ -35,5 +40,10 @@ button = tk.Button(text='Calculate')
 button.place(x=200, y=150, anchor='center')
 button.config(command=cal)
 
+
+# Adding an exit option is here - Success
+exit_or_not = tk.IntVar()
+exit_button = tk.Checkbutton(text="Exit", variable=exit_or_not, command=exit)
+exit_button.place(x=10, y=10)
 
 window.mainloop()
