@@ -1,4 +1,5 @@
 # 😎 Things I have added here so far:
+- Day 27 work (Tkinter, optional arguments, *args, **kwargs)
 - Day 26 work (List, dict comprehension and the **NATO phonetic alphabet challenge**)
 - Day 25 work (Reading CSV, Pandas and the US states game)
 - Mail Merge Challenge (Day 24) ***~~BTW There is a small typo in the commit b7f9b53507e4c2a2f774372bacd9fbea67d83c92~~***
@@ -16,6 +17,12 @@
 ______
 
 ## Pictures of my projects 🖼️
+
+- Day 27
+
+![image](https://user-images.githubusercontent.com/113516635/226864274-bc39530d-5a41-4f7a-be8a-857630718af5.png)
+
+
 
 - Day 25
 
