@@ -1,4 +1,8 @@
 # 😎 Things I have added here so far:
+- Day 26 work (List, dict comprehension and the **NATO phonetic alphabet challenge**)
+- Day 25 work (Reading CSV, Pandas and the US states game)
+- Mail Merge Challenge (Day 24) ***~~BTW There is a small typo in the commit b7f9b53507e4c2a2f774372bacd9fbea67d83c92~~***
+- Turtle Crossing (Day 23)
 - The Pong Game (Day 22)
 - The Snake Game (Day 20 and 21)
 - Day 19 work (Including turtle race)
@@ -12,6 +16,17 @@
 ______
 
 ## Pictures of my projects 🖼️
+
+- Day 25
+
+![image](https://user-images.githubusercontent.com/113516635/225914547-cf4d9ba1-d45b-461f-9520-fdbb80294c87.png)
+
+
+
+- Day 23
+
+![image](https://user-images.githubusercontent.com/113516635/223456016-47040ef5-7275-449b-851f-0fe5963c75fc.png)
+
 
 - Day 22
 
