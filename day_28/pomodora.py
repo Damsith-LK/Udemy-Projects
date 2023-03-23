@@ -20,8 +20,8 @@ def count_down(secs):
     minutes = floor(secs / 60)
     seconds = secs % 60
 
-    if seconds == 0:
-        canvas.itemconfig(timer_text, text=f"{minutes}:00")
+    if seconds < 10:
+        canvas.itemconfig(timer_text, text=f"{minutes}:0{seconds}")
     else:
         canvas.itemconfig(timer_text, text=f"{minutes}:{seconds}")
 
