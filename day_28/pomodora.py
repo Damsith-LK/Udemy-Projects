@@ -6,15 +6,29 @@ RED = "#e7305b"
 GREEN = "#9bdeac"
 YELLOW = "#f7f5dd"
 FONT_NAME = "Courier"
-WORK_MIN = 25
-SHORT_BREAK_MIN = 5
-LONG_BREAK_MIN = 20
+WORK_MIN = 0.1
+SHORT_BREAK_MIN = 1
+LONG_BREAK_MIN = 1
 
+reps = 0  # This is not a constant
 # ---------------------------- TIMER RESET ------------------------------- #
 
 # ---------------------------- TIMER MECHANISM ------------------------------- #
 def start_timer():
-    count_down(300)
+    global reps
+    reps += 1
+
+    work_sec = WORK_MIN * 60
+    short_sec = SHORT_BREAK_MIN * 60
+    long_sec = LONG_BREAK_MIN * 60
+
+    if reps % 8 == 0:
+        count_down(long_sec)
+    elif reps % 2 == 1:
+        count_down(work_sec)
+    else:
+        count_down(short_sec)
+
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
 def count_down(secs):
     minutes = floor(secs / 60)
@@ -27,6 +41,8 @@ def count_down(secs):
 
     if secs > 0:
         window.after(1000, count_down, secs - 1)
+    else:
+        start_timer()
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
@@ -51,7 +67,5 @@ reset_button.grid(row=2, column=3)
 
 ticks = Label(text="✔", fg=GREEN, bg=YELLOW, font=(FONT_NAME, 10, 'bold'))
 ticks.grid(row=3, column=1)
-
-
 
 window.mainloop()
