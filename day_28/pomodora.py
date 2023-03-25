@@ -1,3 +1,5 @@
+# SUCCESS
+
 from tkinter import *
 from math import floor
 # ---------------------------- CONSTANTS ------------------------------- #
@@ -10,8 +12,19 @@ WORK_MIN = 25
 SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
 
-reps = 0  # This is not a constant
+# variables here
+reps = 0
+timer = None
 # ---------------------------- TIMER RESET ------------------------------- #
+
+def reset_timer():
+    global reps
+
+    window.after_cancel(id=timer)
+    canvas.itemconfig(timer_text, text="00:00")
+    label.config(text="Timer")
+    ticks.config(text="")
+    reps = 0
 
 # ---------------------------- TIMER MECHANISM ------------------------------- #
 def start_timer():
@@ -34,6 +47,7 @@ def start_timer():
 
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
 def count_down(secs):
+    global timer
     minutes = floor(secs / 60)
     seconds = secs % 60
 
@@ -43,7 +57,7 @@ def count_down(secs):
         canvas.itemconfig(timer_text, text=f"{minutes}:{seconds}")
 
     if secs > 0:
-        window.after(1000, count_down, secs - 1)
+        timer = window.after(1000, count_down, secs - 1)
     else:
         start_timer()
         if reps % 2 == 0:
@@ -58,6 +72,7 @@ window.config(padx=100, pady=50, bg=YELLOW)
 canvas = Canvas(width=200, height=224, bg=YELLOW, highlightthickness=0)
 tomato = PhotoImage(file="tomato.png")
 canvas.create_image(100, 112, image=tomato)
+
 timer_text = canvas.create_text(100, 130, text="00:00", fill="white", font=(FONT_NAME, 20, "bold"))
 canvas.grid(row=1, column=1)
 
@@ -67,7 +82,7 @@ label.grid(row=0, column=1)
 start_button = Button(text="Start", highlightthickness=0, command=start_timer)
 start_button.grid(row=2, column=0)
 
-reset_button = Button(text="Reset", highlightthickness=0)
+reset_button = Button(text="Reset", highlightthickness=0, command=reset_timer)
 reset_button.grid(row=2, column=3)
 
 ticks = Label(text="", fg=GREEN, bg=YELLOW, font=(FONT_NAME, 10, 'bold'))
