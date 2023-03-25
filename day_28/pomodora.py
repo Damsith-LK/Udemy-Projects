@@ -46,6 +46,8 @@ def count_down(secs):
         window.after(1000, count_down, secs - 1)
     else:
         start_timer()
+        if reps % 2 == 0:
+            ticks.config(text="✔" * int(reps / 2))
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
@@ -68,7 +70,7 @@ start_button.grid(row=2, column=0)
 reset_button = Button(text="Reset", highlightthickness=0)
 reset_button.grid(row=2, column=3)
 
-ticks = Label(text="✔", fg=GREEN, bg=YELLOW, font=(FONT_NAME, 10, 'bold'))
+ticks = Label(text="", fg=GREEN, bg=YELLOW, font=(FONT_NAME, 10, 'bold'))
 ticks.grid(row=3, column=1)
 
 window.mainloop()
