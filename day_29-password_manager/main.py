@@ -36,7 +36,7 @@ def save_password():
     if (' ' in website or len(website) == 0) or (' ' in email_ or len(email_) == 0) or (' ' in password or len(password) == 0):
         msg.showerror(title="Oops", message="Please don't leave any field empty!")
     else:
-        is_ok = msg.askyesno(title=website, message=f"These are the entered details\nEmail: {email}\nPassword: {password}\nDo you wish to proceed?")
+        is_ok = msg.askyesno(title=website, message=f"These are the entered details\nEmail: {email_}\nPassword: {password}\nDo you wish to proceed?")
 
         if is_ok:
             with open("data.txt", "a") as file:
