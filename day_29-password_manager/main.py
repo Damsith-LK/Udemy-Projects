@@ -11,6 +11,23 @@ json.dump() is for writing data | Python dict to json file
 json.load() is for reading data | json file to python dict
 """
 
+# ---------------------------- SEARCH PASSWORD AND EMAIL ------------------------ #
+
+def find_password():
+    search_website = website_entry.get()
+    try:
+        with open('data.json', 'r') as search_file:
+            file_data = json.load(search_file)
+
+    except FileNotFoundError:
+        msg.showerror(title=website_entry.get(), message="No Data File Found")
+
+    else:
+        if search_website in file_data.keys():
+            msg.showinfo(title=search_website, message="Email: {}\nPassword: {}".format(file_data[search_website]["email"], file_data[search_website]["password"]))
+        else:
+            msg.showerror(title=search_website, message="No details for the website exists. \nMake sure you entered the details exactly as when you entered the website info for the first time")
+
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 def gen_password():
     letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
@@ -106,7 +123,7 @@ generate_password_button.grid(row=3, column=2, padx=5, pady=5)
 add_button = Button(text="Add", width=40, command=save_password)
 add_button.grid(row=4, column=1, columnspan=2, padx=5, pady=5)
 
-search_button = Button(text="Search", width=15)
+search_button = Button(text="Search", width=15, command=find_password)
 search_button.grid(row=1, column=2, pady=5, sticky="w")
 
 window.mainloop()
