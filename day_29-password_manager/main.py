@@ -92,7 +92,7 @@ website_entry = Entry(width=35)
 website_entry.grid(row=1, column=1, columnspan=3, padx=5, pady=5, sticky="w")
 website_entry.focus()
 
-email_entry = Entry(width=35)
+email_entry = Entry(width=55)
 email_entry.grid(row=2, column=1, columnspan=3, padx=5, pady=5, sticky="w")
 with open('email.txt', 'r') as file:
     email = file.read()
@@ -103,7 +103,10 @@ password_entry.grid(row=3, column=1, padx=5, pady=5, sticky="w")
 
 generate_password_button = Button(text="Generate Password", command=gen_password)
 generate_password_button.grid(row=3, column=2, padx=5, pady=5)
-add_button = Button(text="Add", width=36, command=save_password)
+add_button = Button(text="Add", width=40, command=save_password)
 add_button.grid(row=4, column=1, columnspan=2, padx=5, pady=5)
+
+search_button = Button(text="Search", width=15)
+search_button.grid(row=1, column=2, pady=5, sticky="w")
 
 window.mainloop()
