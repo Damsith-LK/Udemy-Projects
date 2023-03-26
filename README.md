@@ -1,4 +1,5 @@
 # 😎 Things I have added here so far:
+- Day 30 work (in **features** branch) (Add json and search feature in password manager)
 - Password Manager GUI 🔑 (Day 29)
 - Pomodora Timer⏰ (Day 28)
 - Day 27 work (Tkinter, optional arguments, *args, **kwargs)
@@ -19,6 +20,12 @@
 ______
 
 ## Pictures of my projects 🖼️
+
+- Day 30 (in **features** branch)
+
+![image](https://user-images.githubusercontent.com/113516635/227779088-e541c17b-c800-4fe9-84a3-d54eae5baae7.png)
+
+
 
 - Day 29
 
