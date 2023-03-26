@@ -1,1 +1,10 @@
-{"amazon": {"email": "someone@example.com", "password": "dzCq#$V83GS8%Li%2w"}}
+{
+    "twitter": {
+        "email": "someone@example.com",
+        "password": "(V6)0CUCk)pbS8"
+    },
+    "eduperfect": {
+        "email": "someone@example.com",
+        "password": "ZOX$p$YQV60+JH&"
+    }
+}

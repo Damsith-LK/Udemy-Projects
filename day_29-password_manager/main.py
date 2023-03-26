@@ -1,8 +1,15 @@
+# Using json data instead of text file and creating the feature "search"
+
 from tkinter import *
 from tkinter import messagebox as msg
 import random
 import pyperclip
 import json
+
+"""
+json.dump() is for writing data | Python dict to json file
+json.load() is for reading data | json file to python dict
+"""
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 def gen_password():
@@ -47,8 +54,18 @@ def save_password():
         is_ok = msg.askyesno(title=website, message=f"These are the entered details\nEmail: {email_}\nPassword: {password}\nDo you wish to proceed?")
 
         if is_ok:
-            with open("data.json", "w") as file:
-                json.dump(data_dict, file)
+            try:
+                with open('data.json', 'r') as file1:
+                    data = json.load(file1)
+
+            except FileNotFoundError:
+                with open('data.json', 'w') as file2:
+                    json.dump(data_dict, file2, indent=4)
+
+            else:
+                data.update(data_dict)
+                with open('data.json', 'w') as write_file:
+                    json.dump(data, write_file, indent=4)
 
             website_entry.delete(0, END)
             password_entry.delete(0, END)
