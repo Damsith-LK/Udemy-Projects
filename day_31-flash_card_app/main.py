@@ -6,6 +6,22 @@ BACKGROUND_COLOR = "#B1DDC6"
 
 data = pd.read_csv("french_words.csv")
 words = data.to_dict(orient="records")
+rand_word = {}
+
+# -------------- User knows the word or not ----------------------------------------------- #
+
+def knows():
+    word_display()
+    words.remove(rand_word)
+
+def not_knows():
+    word_display()
+    try:
+        to_learn_data = pd.read_csv("words_to_learn.csv")
+    except FileNotFoundError:
+        data.to_csv("words_to_learn.csv", index=False)
+    else:
+        to_learn_data.append(rand_word)
 
 # ----------------------------- Flip the cards ------------------------------------------- #
 
@@ -18,6 +34,7 @@ def flip_cards(english_word):
 
 def word_display():
     global flip_timer
+    global rand_word
     window.after_cancel(flip_timer)
     rand_word = choice(words)
     canvas.itemconfig(win_img, image=front_img)
