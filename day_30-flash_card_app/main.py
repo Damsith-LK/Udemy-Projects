@@ -17,18 +17,22 @@ def flip_cards(english_word):
 # ---------------------- Reading the csv file and associating with the GUI --------------------------- #
 
 def word_display():
+    global flip_timer
+    window.after_cancel(flip_timer)
     rand_word = choice(words)
     canvas.itemconfig(win_img, image=front_img)
     canvas.itemconfig(title, text="French", fill="black")
     canvas.itemconfig(word, text=rand_word["French"], fill="Black")
 
-    window.after(3000, flip_cards, rand_word["English"])
+    flip_timer = window.after(3000, flip_cards, rand_word["English"])
 
 
 # -------------------------- UI Setup ------------------------------ #
 window = Tk()
 window.title("Flash Card App")
 window.config(pady=50, padx=50, bg=BACKGROUND_COLOR)
+
+flip_timer = window.after(3000, flip_cards)
 
 back_img = PhotoImage(file="./images/card_back.png")
 front_img = PhotoImage(file="./images/card_front.png")
