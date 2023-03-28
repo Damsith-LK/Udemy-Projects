@@ -4,13 +4,25 @@ from random import choice
 
 BACKGROUND_COLOR = "#B1DDC6"
 
-# ---------------------- Reading the csv file and associating with the GUI --------------------------- #
 data = pd.read_csv("french_words.csv")
-french_words = data.French.to_list()
+words = data.to_dict(orient="records")
 
-def french_word_display():
-    rand_word = choice(french_words)
-    canvas.itemconfig(word, text=rand_word)
+# ----------------------------- Flip the cards ------------------------------------------- #
+
+def flip_cards(english_word):
+    canvas.itemconfig(win_img, image=back_img)
+    canvas.itemconfig(title, text="English", fill="white")
+    canvas.itemconfig(word, text=english_word, fill="white")
+
+# ---------------------- Reading the csv file and associating with the GUI --------------------------- #
+
+def word_display():
+    rand_word = choice(words)
+    canvas.itemconfig(win_img, image=front_img)
+    canvas.itemconfig(title, text="French", fill="black")
+    canvas.itemconfig(word, text=rand_word["French"], fill="Black")
+
+    window.after(3000, flip_cards, rand_word["English"])
 
 
 # -------------------------- UI Setup ------------------------------ #
@@ -30,10 +42,11 @@ word = canvas.create_text(400, 263, text="Word", font=("Ariel", 60, "bold"))
 
 canvas.grid(column=0, row=0, columnspan=2)
 
-wrong_button = Button(image=wrong_img, highlightthickness=0, bg=BACKGROUND_COLOR, borderwidth=0, command=french_word_display)
-right_button = Button(image=right_img, highlightthickness=0, bg=BACKGROUND_COLOR, borderwidth=0, command=french_word_display)
+wrong_button = Button(image=wrong_img, highlightthickness=0, bg=BACKGROUND_COLOR, borderwidth=0)
+right_button = Button(image=right_img, highlightthickness=0, bg=BACKGROUND_COLOR, borderwidth=0, command=word_display)
 wrong_button.grid(row=1, column=0)
 right_button.grid(row=1, column=1)
 
+word_display()
 
 window.mainloop()
