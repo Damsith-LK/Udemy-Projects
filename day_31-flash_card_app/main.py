@@ -4,24 +4,25 @@ from random import choice
 
 BACKGROUND_COLOR = "#B1DDC6"
 
-data = pd.read_csv("french_words.csv")
+try:
+    data = pd.read_csv("words_to_learn.csv")
+except FileNotFoundError:
+    data = pd.read_csv("french_words.csv")
+    data.to_csv("words_to_learn.csv", index=False)
+
+
 words = data.to_dict(orient="records")
+
 rand_word = {}
+
 
 # -------------- User knows the word or not ----------------------------------------------- #
 
 def knows():
     word_display()
     words.remove(rand_word)
-
-def not_knows():
-    word_display()
-    try:
-        to_learn_data = pd.read_csv("words_to_learn.csv")
-    except FileNotFoundError:
-        data.to_csv("words_to_learn.csv", index=False)
-    else:
-        to_learn_data.append(rand_word)
+    data_frame = pd.DataFrame(words)
+    data_frame.to_csv("words_to_learn.csv", index=False)
 
 # ----------------------------- Flip the cards ------------------------------------------- #
 
@@ -63,8 +64,8 @@ word = canvas.create_text(400, 263, text="Word", font=("Ariel", 60, "bold"))
 
 canvas.grid(column=0, row=0, columnspan=2)
 
-wrong_button = Button(image=wrong_img, highlightthickness=0, bg=BACKGROUND_COLOR, borderwidth=0)
-right_button = Button(image=right_img, highlightthickness=0, bg=BACKGROUND_COLOR, borderwidth=0, command=word_display)
+wrong_button = Button(image=wrong_img, highlightthickness=0, bg=BACKGROUND_COLOR, borderwidth=0, command=word_display)
+right_button = Button(image=right_img, highlightthickness=0, bg=BACKGROUND_COLOR, borderwidth=0, command=knows)
 wrong_button.grid(row=1, column=0)
 right_button.grid(row=1, column=1)
 
