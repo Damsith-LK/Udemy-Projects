@@ -131,3 +131,6 @@ dmypy.json
 .idea/workspace.xml
 
 .vscode
+
+# email
+day_32/my_email.txt
