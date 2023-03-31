@@ -2,7 +2,7 @@
 # The email I'm going to send emails, is a gmail
 
 import smtplib as smtp
-from info import *
+from day_32.info import *
 
 conn = smtp.SMTP("smtp.gmail.com")
 conn.starttls()  # Makes the connection secure
