@@ -133,4 +133,4 @@ dmypy.json
 .vscode
 
 # email
-day_32/my_email.txt
+day_32/info.py
