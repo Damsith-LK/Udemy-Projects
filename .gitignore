@@ -134,4 +134,4 @@ dmypy.json
 
 # email
 day_32/info.py
-day_32/automated-birthday-wisher/emails.py
+day_32/automated-birthday-wisher/birthdays.csv
