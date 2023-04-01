@@ -1,4 +1,5 @@
 # 😎 Things I have added here so far:
+- Day 32 📧 (Learn e-mail sending with **Smtplib** and do monday-motivation sender and *automated-birthday-wisher*)
 - Flash Card App 📑 (Day 31)
 - Day 30 work (in **features** branch) (Add json and search feature in password manager)
 - Password Manager GUI 🔑 (Day 29)
@@ -21,6 +22,12 @@
 ______
 
 ## Pictures of my projects 🖼️
+
+- Day 32
+
+![image](https://user-images.githubusercontent.com/113516635/229268878-22b71095-3557-40d7-bdca-9a83781cc2b7.png)
+
+
 
 - Day 31
 
