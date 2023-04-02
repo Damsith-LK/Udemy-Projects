@@ -1,4 +1,5 @@
 # 😎 Things I have added here so far:
+- Day 33 (Learn about API and create a **ISS Overhead Notifier** and a **Kanye Quote Program**)
 - Day 32 📧 (Learn e-mail sending with **Smtplib** and do monday-motivation sender and *automated-birthday-wisher*)
 - Flash Card App 📑 (Day 31)
 - Day 30 work (in **features** branch) (Add json and search feature in password manager)
@@ -22,6 +23,12 @@
 ______
 
 ## Pictures of my projects 🖼️
+
+- Day 33
+
+![image](https://user-images.githubusercontent.com/113516635/229336765-63d34578-1601-4409-9b36-4e8285b8b976.png)
+
+
 
 - Day 32
 
