@@ -1,4 +1,5 @@
 # 😎 Things I have added here so far:
+- Quizzler App ⁉️ (Day 34)
 - Day 33 (Learn about API and create a **ISS Overhead Notifier** and a **Kanye Quote Program**)
 - Day 32 📧 (Learn e-mail sending with **Smtplib** and do monday-motivation sender and *automated-birthday-wisher*)
 - Flash Card App 📑 (Day 31)
@@ -23,6 +24,12 @@
 ______
 
 ## Pictures of my projects 🖼️
+
+- Day 34
+
+![image](https://user-images.githubusercontent.com/113516635/229693687-3cd4d556-a115-48e3-90cd-14bb65207673.png)
+
+
 
 - Day 33
 
@@ -105,11 +112,3 @@ ______
 - Day 16
 
  ![image](https://user-images.githubusercontent.com/113516635/218295416-24a63ac4-0568-46b3-9a00-b289375092af.png)
-
-
-
-
-
-
-
-
