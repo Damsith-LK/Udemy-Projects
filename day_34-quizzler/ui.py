@@ -14,7 +14,7 @@ class QuizUI:
         self.score_label.grid(column=1, row=0)
 
         self.canvas = Canvas(height=250, width=300)
-        self.canvas.grid(column=0, row=1, columnspan=2)
+        self.canvas.grid(column=0, row=1, columnspan=2, pady=50)
         self.canvas.create_text(150, 125, font=("Ariel", 15, 'italic'), text="Amazon acquired Twitch in\n"
                                                         "August 2014 for 970 million\n"
                                                         "dollars."
