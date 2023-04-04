@@ -1,4 +1,9 @@
 # 😎 Things I have added here so far:
+- Quizzler App ⁉️ (Day 34)
+- Day 33 (Learn about API and create a **ISS Overhead Notifier** and a **Kanye Quote Program**)
+- Day 32 📧 (Learn e-mail sending with **Smtplib** and do monday-motivation sender and *automated-birthday-wisher*)
+- Flash Card App 📑 (Day 31)
+- Day 30 work (in **features** branch) (Add json and search feature in password manager)
 - Password Manager GUI 🔑 (Day 29)
 - Pomodora Timer⏰ (Day 28)
 - Day 27 work (Tkinter, optional arguments, *args, **kwargs)
@@ -19,6 +24,36 @@
 ______
 
 ## Pictures of my projects 🖼️
+
+- Day 34
+
+![image](https://user-images.githubusercontent.com/113516635/229693687-3cd4d556-a115-48e3-90cd-14bb65207673.png)
+
+
+
+- Day 33
+
+![image](https://user-images.githubusercontent.com/113516635/229336765-63d34578-1601-4409-9b36-4e8285b8b976.png)
+
+
+
+- Day 32
+
+![image](https://user-images.githubusercontent.com/113516635/229268878-22b71095-3557-40d7-bdca-9a83781cc2b7.png)
+
+
+
+- Day 31
+
+![image](https://user-images.githubusercontent.com/113516635/228523604-13a356af-5ee5-4bba-b370-cd982ebf9fc6.png)
+
+
+
+- Day 30 (in **features** branch)
+
+![image](https://user-images.githubusercontent.com/113516635/227779088-e541c17b-c800-4fe9-84a3-d54eae5baae7.png)
+
+
 
 - Day 29
 
@@ -77,11 +112,3 @@ ______
 - Day 16
 
  ![image](https://user-images.githubusercontent.com/113516635/218295416-24a63ac4-0568-46b3-9a00-b289375092af.png)
-
-
-
-
-
-
-
-
