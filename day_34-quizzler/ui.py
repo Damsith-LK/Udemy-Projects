@@ -12,7 +12,7 @@ class QuizUI:
         self.window.title("Quizzler")
         self.window.config(bg=THEME_COLOR, padx=20, pady=20)
 
-        self.score_label = Label(text="Score: 0", bg=THEME_COLOR, fg="white", font=("Timer New Roman", 15, 'bold'))
+        self.score_label = Label(text="Score: 0", bg=THEME_COLOR, fg="white", font=("Times New Roman", 15, 'bold'))
         self.score_label.grid(column=1, row=0)
 
         self.canvas = Canvas(height=250, width=300)
@@ -34,10 +34,21 @@ class QuizUI:
 
     def next_question(self):
         q_text = self.quiz.next_question()
+        self.canvas.config(bg="white")
         self.canvas.itemconfig(self.q_text, text=q_text)
+        self.score_label.config(text=f"Score: {self.quiz.score}")
 
     def true(self):
-        self.quiz.check_answer("True")
+        self.give_feedback(self.quiz.check_answer("True"))
 
     def false(self):
-        self.quiz.check_answer("False")
+        self.give_feedback(self.quiz.check_answer("False"))
+
+    def give_feedback(self, is_right: bool):
+        if is_right:
+            self.canvas.config(bg="green")
+        else:
+            self.canvas.config(bg="red")
+        self.window.after(1000, self.next_question)
+
+
