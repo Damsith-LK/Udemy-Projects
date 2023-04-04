@@ -33,10 +33,15 @@ class QuizUI:
         self.window.mainloop()
 
     def next_question(self):
-        q_text = self.quiz.next_question()
         self.canvas.config(bg="white")
-        self.canvas.itemconfig(self.q_text, text=q_text)
-        self.score_label.config(text=f"Score: {self.quiz.score}")
+        if self.quiz.still_has_questions():
+            q_text = self.quiz.next_question()
+            self.canvas.itemconfig(self.q_text, text=q_text)
+            self.score_label.config(text=f"Score: {self.quiz.score}")
+        else:
+            self.canvas.itemconfig(self.q_text, text="You've reached the end!")
+            self.true_button.config(state="disabled")
+            self.false_button.config(command=self.window.destroy)
 
     def true(self):
         self.give_feedback(self.quiz.check_answer("True"))
@@ -50,5 +55,3 @@ class QuizUI:
         else:
             self.canvas.config(bg="red")
         self.window.after(1000, self.next_question)
-
-
