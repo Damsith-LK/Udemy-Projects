@@ -1,7 +1,17 @@
 from tkinter import *
 from quiz_brain import QuizBrain
+from tkinter.ttk import Combobox
 
 THEME_COLOR = "#375362"
+
+cat_list = [
+    "General Knowledge", "Books", "Film", "Music", "Musicals & Theatres", "Television", "Video Games", "Board Games",
+    "Nature", "Computers", "Mathematics", "Mythology", "Sports", "Geography", "History", "Politics", "Art", "Celebrities",
+    "Animals", "Vehicles", "Comics", "Gadgets", "Japanese Anime and Manga",
+    "Cartoon & Animations"
+            ]
+
+categories = {key: cat_list.index(key) + 9 for key in cat_list}
 
 
 class QuizUI:
