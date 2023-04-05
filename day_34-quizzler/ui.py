@@ -38,6 +38,11 @@ class QuizUI:
         self.true_button.grid(column=0, row=2)
         self.false_button.grid(column=1, row=2)
 
+        self.combo = Combobox(values=cat_list)
+        self.combo.current(0)
+        self.combo.bind("<<ComboboxSelected>>")
+        self.combo.grid(column=0, row=0)
+
         self.next_question()
 
         self.window.mainloop()
@@ -65,3 +70,10 @@ class QuizUI:
         else:
             self.canvas.config(bg="red")
         self.window.after(1000, self.next_question)
+
+    def select_category(self):
+        cat = self.combo.get()
+        if cat in cat_list:
+            return categories[cat]
+        else:
+            self.window.destroy()
