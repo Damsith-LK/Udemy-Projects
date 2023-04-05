@@ -136,3 +136,6 @@ dmypy.json
 day_32/info.py
 day_32/automated-birthday-wisher/birthdays.csv
 day_33-API/iss-overhead-notifier/config.py
+
+# codes
+day_35-rain_alert/key.py
