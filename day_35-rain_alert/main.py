@@ -1,24 +1,27 @@
-# Getting some weather data from openweathermap.org
-
 import requests
+import datetime
 from key import key
 
-MY_LAT = 7.085899
-MY_LONG = 80.033464
+url = f'http://api.openweathermap.org/data/2.5/forecast?q=Yakkala&appid={key}&units=metric'
 
-params = {"lat": MY_LAT, "lon": MY_LONG, "appid": key}
+response = requests.get(url)
+response.raise_for_status()
 
-# response = requests.get(url=f"https://api.openweathermap.org/data/2.5/weather?q=Yakkala&appid={key}")
-# response = requests.get(url=f"https://api.openweathermap.org/data/2.5/onecall", params=params)
-response = requests.get(f'http://api.openweathermap.org/data/2.5/forecast?q=Yakkala&appid={key}')
 data = response.json()
+forecasts = data['list']
+current_time = datetime.datetime.now()
 
-print(data)
-if response.status_code == 200:
-    data = response.json()
-    for forecast in data['list']:
-        date_time = forecast['dt_txt']
-        rainfall = forecast['rain']['3h'] if 'rain' in forecast else 0
-        print(f'{date_time}: {rainfall}mm')
-else:
-    print('Error occurred while getting data from API')
+id_list = []
+
+for forecast in forecasts:
+    date_time = datetime.datetime.fromtimestamp(forecast['dt'])
+    if current_time <= date_time <= current_time + datetime.timedelta(hours=12):
+        weather_id = forecast['weather'][0]['id']
+        w_data = f'{date_time}: {weather_id}'
+        id_list.append(w_data)
+
+print(id_list)
+for i in id_list:
+    if int(i.split(" ")[2]) < 700:
+        print("Bring an umbrella")
+        break
