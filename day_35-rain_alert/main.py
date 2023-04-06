@@ -1,6 +1,8 @@
 import requests
 import datetime
 from key import key
+import smtplib as smtp
+import day_32.info as info
 
 url = f'http://api.openweathermap.org/data/2.5/forecast?q=Yakkala&appid={key}&units=metric'
 
@@ -23,5 +25,12 @@ for forecast in forecasts:
 print(id_list)
 for i in id_list:
     if int(i.split(" ")[2]) < 700:
-        print("Bring an umbrella")
+        with smtp.SMTP('smtp.gmail.com') as conn:
+            conn.starttls()
+            conn.login(user=info.my_email, password=info.password)
+            conn.sendmail(from_addr=info.my_email, to_addrs=info.send_email,
+                          msg="Subject:Bring An Umbrella!"
+                              "\n\n"
+                              "It seems as if it is going to rain in the next 12 hours. So it'd be wise to take an umbrella wherever you go"
+                          )
         break
