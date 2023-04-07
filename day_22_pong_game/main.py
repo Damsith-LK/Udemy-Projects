@@ -9,6 +9,8 @@ Here are the steps:
 7. Changing ball speed (Everytime it hits a paddle) - Done
 """
 
+# Add new features: 1. Pong game has a final win or lose 2. Get the names of players from each side
+
 import turtle
 from paddles import Paddle
 from ball import Ball
@@ -19,6 +21,10 @@ screen = turtle.Screen()
 screen.title('The Pong Game')
 screen.bgcolor('black')
 screen.setup(width=1000, height=700)
+
+# Getting player names
+left_player = screen.textinput('Left Player', 'Enter the name of the left side player')
+right_player = screen.textinput('Right Player', 'Enter the name of the right side player')
 
 # Setting up the paddles
 left_paddle = Paddle(-490)
@@ -81,5 +87,18 @@ while game_continue:
         ball.goto(0, 0)
         sleep(2)
         ball.reset_delay()
+
+    if scoreboard.left_score == 11 or scoreboard.right_score == 11:
+        if scoreboard.left_score > scoreboard.right_score:
+            game_continue = False
+            scoreboard.win('left', left_player)
+
+        elif scoreboard.left_score < scoreboard.right_score:
+            game_continue = False
+            scoreboard.win('right', right_player)
+
+        else:
+            game_continue = False
+
 
 screen.exitonclick()

@@ -1,7 +1,17 @@
 from tkinter import *
 from quiz_brain import QuizBrain
+from tkinter.ttk import Combobox
 
 THEME_COLOR = "#375362"
+
+cat_list = [
+    "General Knowledge", "Books", "Film", "Music", "Musicals & Theatres", "Television", "Video Games", "Board Games",
+    "Nature", "Computers", "Mathematics", "Mythology", "Sports", "Geography", "History", "Politics", "Art", "Celebrities",
+    "Animals", "Vehicles", "Comics", "Gadgets", "Japanese Anime and Manga",
+    "Cartoon & Animations"
+            ]
+
+categories = {key: cat_list.index(key) + 9 for key in cat_list}
 
 
 class QuizUI:
@@ -27,6 +37,11 @@ class QuizUI:
         self.false_button = Button(image=self.false_img, bg=THEME_COLOR, command=self.false)
         self.true_button.grid(column=0, row=2)
         self.false_button.grid(column=1, row=2)
+
+        self.combo = Combobox(values=cat_list)
+        self.combo.current(0)
+        self.combo.bind("<<ComboboxSelected>>")
+        self.combo.grid(column=0, row=0)
 
         self.next_question()
 
@@ -55,3 +70,10 @@ class QuizUI:
         else:
             self.canvas.config(bg="red")
         self.window.after(1000, self.next_question)
+
+    def select_category(self):
+        cat = self.combo.get()
+        if cat in cat_list:
+            return categories[cat]
+        else:
+            self.window.destroy()
