@@ -4,7 +4,7 @@
 ## STEP 2: Use https://newsapi.org - Done
 # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. - Done
 
-## STEP 3: Use https://www.twilio.com
+## STEP 3: Use https://www.twilio.com - For now I am using email
 # Send a seperate message with the percentage change and each article's title and description to your phone number.
 
 
