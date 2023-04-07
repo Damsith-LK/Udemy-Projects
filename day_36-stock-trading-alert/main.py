@@ -23,14 +23,20 @@ day_before_data = float(stock_data[day_before]["4. close"])
 percent_change = round(((yesterday_data - day_before_data) / yesterday_data) * 100, 4)
 
 
-def send_email(subject: str, body: str, author: str):
+def send_email(percentage: float, title: str, content: str, author: str):
+    if percentage < 0:
+        msg = f"🔻{round(abs(percentage))}"
+    else:
+        msg = f"🔺{round(percentage)}"
+
     with smtp.SMTP("smtp.gmail.com") as conn:
         conn.starttls()
         conn.login(user=config.my_email, password=config.password)
         conn.sendmail(from_addr=config.my_email, to_addrs=config.send_email, msg=
-                      f"Subject:{subject}"
+                      f"Subject:{COMPANY_NAME}:- {msg}"
                       "\n\n"
-                      f"{body}\n-{author}"
+                      f"{title}\n{content}"
+                      f"\n\n{author}"
                       )
 
 
@@ -53,12 +59,12 @@ def get_news() -> list:
 if percent_change < -5 or percent_change > 5:
     data = get_news()
     for ii in data:
-        send_email(ii["title"], ii["description"], ii["author"])
+        send_email(percent_change, ii["title"], ii["description"], ii["author"])
 else:
     print("Nah need of news")
 
 
 # Testing:
-# test_data = get_news()
-# for iii in test_data:
-#     send_email(iii["title"], iii["description"], iii["author"])
+test_data = get_news()
+for iii in test_data:
+    send_email(percent_change, iii["title"], iii["description"], iii["author"])
