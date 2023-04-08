@@ -9,6 +9,8 @@ import smtplib as smtp
 
 STOCK = "TSLA"
 COMPANY_NAME = "Tesla Inc"
+UP_TRIANGLE = "\U0001F53A"
+DOWN_TRIANGLE = "\U0001F53B"
 
 stock_response = requests.get(f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol={STOCK}&apikey={config.stock_key}")
 stock_response.raise_for_status()
@@ -29,9 +31,9 @@ percent_change = round(((yesterday_data - day_before_data) / yesterday_data) * 1
 
 def send_email(percentage: float, title: str, content: str, author: str):
     if percentage < 0:
-        msg = f"🔻{round(abs(percentage))}".encode("utf-8")
+        msg = f"{DOWN_TRIANGLE}{round(abs(percentage))}".encode("utf-8")
     else:
-        msg = f"🔺{round(percentage)}".encode("utf-8")
+        msg = f"{UP_TRIANGLE}{round(percentage)}".encode("utf-8")
 
     with smtp.SMTP("smtp.gmail.com") as conn:
         conn.starttls()
