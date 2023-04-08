@@ -1,5 +1,5 @@
 # 😎 Things I have added here so far:
-- Stock Trading Alert Program (Day 36)
+- Stock Trading Alert Program 📈 (Day 36)
 - Rain Alert Program ☔ (Day 35)
 - Quizzler App ⁉️ (Day 34)
 - Day 33 (Learn about API and create a **ISS Overhead Notifier** and a **Kanye Quote Program**)
