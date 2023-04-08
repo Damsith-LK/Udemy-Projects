@@ -48,7 +48,8 @@ def send_email(percentage: float, title: str, content: str, author: str):
 
 def get_news() -> list:
     news_list = []
-    news_response = requests.get(f"https://newsapi.org/v2/everything?q=TSLA&from={day_before}&sortBy=popularity&apiKey={config.news_key}")
+    params = {"apiKey": config.news_key, "qInTitle": COMPANY_NAME, "from": day_before}
+    news_response = requests.get(f"https://newsapi.org/v2/everything", params=params)
     news_response.raise_for_status()
     news_data = news_response.json()
     count = 0
@@ -71,6 +72,6 @@ else:
 
 
 # Testing:
-test_data = get_news()
-for iii in test_data:
-    send_email(percent_change, iii["title"], iii["description"], iii["author"])
+# test_data = get_news()
+# for iii in test_data:
+#     send_email(percent_change, iii["title"], iii["description"], iii["author"])
