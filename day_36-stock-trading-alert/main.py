@@ -4,6 +4,7 @@
 import requests
 import config
 import datetime
+from datetime import timezone
 import smtplib as smtp
 
 STOCK = "TSLA"
@@ -14,8 +15,11 @@ stock_response.raise_for_status()
 stock_data = stock_response.json()["Time Series (Daily)"]
 print(stock_data)
 
-yesterday = str(datetime.datetime.today() - datetime.timedelta(days=1)).split(" ")[0]
-day_before = str(datetime.datetime.today() - datetime.timedelta(days=2)).split(" ")[0]
+yesterday = datetime.datetime.now(timezone.utc) - datetime.timedelta(days=1)
+day_before = datetime.datetime.now(timezone.utc) - datetime.timedelta(days=2)
+
+yesterday = str(yesterday.date()).split(" ")[0]
+day_before = str(day_before.date()).split(" ")[0]
 
 yesterday_data = float(stock_data[yesterday]["4. close"])
 day_before_data = float(stock_data[day_before]["4. close"])
@@ -25,9 +29,9 @@ percent_change = round(((yesterday_data - day_before_data) / yesterday_data) * 1
 
 def send_email(percentage: float, title: str, content: str, author: str):
     if percentage < 0:
-        msg = f"🔻{round(abs(percentage))}"
+        msg = f"🔻{round(abs(percentage))}".encode("utf-8")
     else:
-        msg = f"🔺{round(percentage)}"
+        msg = f"🔺{round(percentage)}".encode("utf-8")
 
     with smtp.SMTP("smtp.gmail.com") as conn:
         conn.starttls()
