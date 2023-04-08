@@ -141,3 +141,4 @@ day_33-API/iss-overhead-notifier/config.py
 day_35-rain_alert/key.py
 
 day_36-stock-trading-alert/config.py
+day_36-stock-trading-alert/test.py
