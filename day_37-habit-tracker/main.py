@@ -1,4 +1,4 @@
-# In this program, we'll be using not only get() but also other methods - post(), put(), delete()
+# In this program, we'll be using not only get() but also post()
 # I'm using this to keep track of my meditation
 
 import requests
