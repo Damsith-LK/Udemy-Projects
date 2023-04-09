@@ -25,16 +25,42 @@ data = exercise_response.json()
 print(data)
 
 
+# ----------------------- FUNCTIONS START HERE ------------------------- #
+def get_date() -> str:
+    day = input("When did you do these exercises? (day before yesterday or yesterday or today): ").lower()
+    if day == 'day before yesterday':
+        day = datetime.datetime.now() - datetime.timedelta(days=2)
+    elif day == "yesterday":
+        day = datetime.datetime.now() - datetime.timedelta(days=1)
+    else:
+        day = datetime.datetime.now()
 
-today_date = datetime.datetime.now().strftime("%d/%m/%Y")
-now_time = datetime.datetime.now().strftime("%X")
+    return str(day.strftime("%d/%m/%Y"))
+
+def get_time() -> str:
+    time = input("At what time of the day did you these glorious exercises (eg - 18:30 or now): ").lower()
+    if ":" not in time and time != "now":
+        quit("Invalid Input")
+    if time == "now":
+        time = datetime.datetime.now().strftime("%X")
+    else:
+        time += ":00"
+
+    return time
+# ----------------------------- FUNCTIONS END HERE --------------------------- #
+
+
+date = get_date()
+time = get_time()
+print(date, time)
 
 sheet_header = {"Authorization": config.SHEETY_TOKEN}
+
 for exercise in data["exercises"]:
     sheet_inputs = {
         "workout": {
-            "date": today_date,
-            "time": now_time,
+            "date": date,
+            "time": time,
             "exercise": exercise["name"].title(),
             "duration": "{} mins".format(str(exercise["duration_min"])),
             "calories": exercise["nf_calories"]
