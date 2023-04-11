@@ -4,7 +4,7 @@ import datetime as dt
 
 
 class FlightData:
-    # This class is responsible for structuring the flight data.
+    """This class is responsible for structuring the flight data."""
     def __init__(self):
         self.tomorrow = (dt.datetime.now() + dt.timedelta(days=1)).strftime("%d/%m/%Y")
         self.six_months_from_now = (dt.datetime.now() + dt.timedelta(days=180)).strftime("%d/%m/%Y")

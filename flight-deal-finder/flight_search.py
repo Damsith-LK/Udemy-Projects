@@ -3,7 +3,7 @@ import config
 
 class FlightSearch:
 
-    # This class is responsible for talking to the Flight Search API.
+    """This class is responsible for talking to the Flight Search API."""
 
     def give_city_id(self, city) -> str:
 

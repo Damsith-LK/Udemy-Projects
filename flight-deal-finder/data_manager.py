@@ -3,7 +3,7 @@ import config
 
 
 class DataManager:
-    # This class is responsible for talking to the Google Sheet.
+    """This class is responsible for talking to Sheety"""
 
     def __init__(self):
         self.destinations = []
