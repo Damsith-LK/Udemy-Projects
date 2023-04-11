@@ -1,3 +1,6 @@
+# About 👨‍💻
+***This repository is about my Python learning and projects I have created***
+
 # 😎 Things I have added here so far:
 - Workout Tracker with Google Sheets 💪 (Day 38)
 - [Habit Tracker](https://pixe.la/v1/users/damsithbrosl/graphs/graph1.html) 🧘 (Day 37)
