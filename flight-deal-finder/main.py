@@ -11,10 +11,12 @@ Program requirements -
 
 from data_manager import DataManager
 from flight_search import FlightSearch
+from flight_data import FlightData
 
 data_manager = DataManager()
 sheet_data = data_manager.get_destinations()
 flight_search = FlightSearch()
+flight_data = FlightData()
 
 if sheet_data[0]["iataCode"] == "":
 
@@ -24,3 +26,8 @@ if sheet_data[0]["iataCode"] == "":
 
     data_manager.destination_data = sheet_data
     data_manager.update_destinations()
+
+for i in sheet_data:
+    data = flight_data.find_cheap_flight(i["iataCode"])
+    print(f"{i['city']}: £{data}")
+
