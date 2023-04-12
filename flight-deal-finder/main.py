@@ -14,11 +14,13 @@ Program requirements -
 from data_manager import DataManager
 from flight_search import FlightSearch
 from flight_data import FlightData
+from notification_manager import NotificationManager
 
 data_manager = DataManager()
 sheet_data = data_manager.get_destinations()
 flight_search = FlightSearch()
 flight_data = FlightData()
+notification_manager = NotificationManager()
 
 if sheet_data[0]["iataCode"] == "":
 
@@ -31,5 +33,10 @@ if sheet_data[0]["iataCode"] == "":
 
 for i in sheet_data:
     data = flight_data.find_cheap_flight(i["iataCode"])
-    print(f"{i['city']}: £{data}")
+    price_data = data["price"]
+    lowest_price = i["lowestPrice"]
+
+    if price_data <= lowest_price:
+        notification_manager.send_email(lowest_price, i["city"], i["iataCode"], data["departure"], data["return"])
+        print("E-mail sent.")
 
