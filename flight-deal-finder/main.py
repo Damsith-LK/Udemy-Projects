@@ -1,4 +1,7 @@
-# Day 39 and 40 - Flight Deal Finder
+# Day 39 - Flight Deal Finder
+# Day 40 - Flight Club
+
+
 # This file will need to use the DataManager,FlightSearch, FlightData, NotificationManager classes to achieve the program requirements.
 
 """
@@ -32,7 +35,10 @@ if sheet_data[0]["iataCode"] == "":
     data_manager.update_destinations()
 
 for i in sheet_data:
+
     data = flight_data.find_cheap_flight(i["iataCode"])
+    if data is None:
+        continue
     price_data = data["price"]
     lowest_price = i["lowestPrice"]
 
