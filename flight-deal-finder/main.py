@@ -5,7 +5,7 @@
 # This file will need to use the DataManager,FlightSearch, FlightData, NotificationManager classes to achieve the program requirements.
 
 """
-Program requirements -
+Program requirements of Flight Deal Finder -
 
 1. Use the Flight Search and Sheety API to populate your own copy of the Google Sheet with
    International Air Transport Association (IATA) codes for each city.
@@ -18,11 +18,12 @@ from data_manager import DataManager
 from flight_search import FlightSearch
 from flight_data import FlightData
 from notification_manager import NotificationManager
+user_max_stopovers = int(input("Enter the maximum number of stop overs according to your preference (Must be a number equal to 0 or greater: "))
 
 data_manager = DataManager()
 sheet_data = data_manager.get_destinations()
 flight_search = FlightSearch()
-flight_data = FlightData()
+flight_data = FlightData(max_stop_overs=user_max_stopovers)
 notification_manager = NotificationManager()
 
 if sheet_data[0]["iataCode"] == "":
@@ -41,8 +42,10 @@ for i in sheet_data:
         continue
     price_data = data["price"]
     lowest_price = i["lowestPrice"]
+    stop_overs = data["stop_overs"]
+    via_cities = data["via_cities"]
 
     if price_data <= lowest_price:
-        notification_manager.send_email(lowest_price, i["city"], i["iataCode"], data["departure"], data["return"])
+        notification_manager.send_email(lowest_price, i["city"], i["iataCode"], data["departure"], data["return"], stop_overs, via_cities)
         print("E-mail sent.")
 

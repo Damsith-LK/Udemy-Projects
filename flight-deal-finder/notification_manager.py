@@ -10,11 +10,20 @@ class NotificationManager:
         pass
 
     def send_email(self, price_in_gbp: int, des_city_name: str, des_city_code: str, outbound_date: str,
-                   inbound_date: str, dep_city_name="Colombo", dep_city_code="CMB"):
+                   inbound_date: str, stop_overs: int or None, via_cities: list[str] or None, dep_city_name="Colombo", dep_city_code="CMB"):
         """Gets the relevant data in parameters and send an e-mail with those data. Dates should be entered in the format YYYY-MM-DD"""
+        stop_over_msg = ""
+        if stop_overs == 0 or stop_overs is None:
+            stop_over_msg = "Flight has no stop overs"
+        elif stop_overs == 1:
+            stop_over_msg = f"Flight has {stop_overs} stop over, via city {via_cities[0]}"
+        else:
+            stop_over_msg = f"Flight has {stop_overs} stop overs, via cities: {', '.join(via_cities)}"
+
         subject = "Low Price Alert!"
         body = f"Only £{price_in_gbp} to fly from {dep_city_name}-{dep_city_code} to {des_city_name}-{des_city_code}," \
-            f" from {outbound_date} to {inbound_date}"
+            f" from {outbound_date} to {inbound_date}" \
+               f"\n\n {stop_over_msg}"
 
         with smtp.SMTP('smtp.gmail.com', 587) as conn:
             conn.ehlo()
