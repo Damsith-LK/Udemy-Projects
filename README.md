@@ -34,6 +34,16 @@ ______
 
 ## Pictures of my projects 🖼️
 
+
+- Day 39 and 40
+
+![image](https://user-images.githubusercontent.com/113516635/233313934-d2fed658-267e-42e3-a590-abc5be28190c.png)
+![image](https://user-images.githubusercontent.com/113516635/233312932-2d31cf01-fa7f-4e6d-8dc8-6c00f7521ef1.png)
+![image](https://user-images.githubusercontent.com/113516635/233313423-8460e0dd-2235-424f-bdd6-461be63a76e9.png)
+![image](https://user-images.githubusercontent.com/113516635/233313545-04a4b544-2035-495c-a1b0-cbe707c4fe28.png)
+
+
+
 - Day 38
 
 ![image](https://user-images.githubusercontent.com/113516635/230778117-21d0a18f-5274-407b-8258-a2bdc0c17939.png)
