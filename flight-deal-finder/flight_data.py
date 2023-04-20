@@ -6,7 +6,7 @@ from pprint import pprint
 
 class FlightData:
     """This class is responsible for structuring the flight data."""
-    def __init__(self, max_stop_overs: int=1, via_city: str=""):
+    def __init__(self, max_stop_overs: int = 1, via_city: str = ""):
         self.max_stop_overs = max_stop_overs
         self.via_city = via_city
         self.tomorrow = (dt.datetime.now() + dt.timedelta(days=1)).strftime("%d/%m/%Y")

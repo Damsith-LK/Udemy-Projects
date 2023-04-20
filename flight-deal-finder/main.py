@@ -18,12 +18,12 @@ from data_manager import DataManager
 from flight_search import FlightSearch
 from flight_data import FlightData
 from notification_manager import NotificationManager
-user_max_stopovers = int(input("Enter the maximum number of stop overs according to your preference (Must be a number equal to 0 or greater: "))
+# user_max_stopovers = int(input("Enter the maximum number of stop-overs according to your preference (Must be a number equal to 0 or greater: "))
 
 data_manager = DataManager()
 sheet_data = data_manager.get_destinations()
 flight_search = FlightSearch()
-flight_data = FlightData(max_stop_overs=user_max_stopovers)
+flight_data = FlightData()
 notification_manager = NotificationManager()
 
 if sheet_data[0]["iataCode"] == "":
@@ -44,8 +44,10 @@ for i in sheet_data:
     lowest_price = i["lowestPrice"]
     stop_overs = data["stop_overs"]
     via_cities = data["via_cities"]
+    email_list = data_manager.get_customer_emails()
 
     if price_data <= lowest_price:
-        notification_manager.send_email(lowest_price, i["city"], i["iataCode"], data["departure"], data["return"], stop_overs, via_cities)
-        print("E-mail sent.")
+        for email in email_list:
+            notification_manager.send_email(lowest_price, i["city"], i["iataCode"], data["departure"], data["return"], stop_overs, via_cities, email)
+            print("E-mail sent.")
 
