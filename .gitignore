@@ -139,3 +139,11 @@ day_33-API/iss-overhead-notifier/config.py
 
 # codes
 day_35-rain_alert/key.py
+
+day_36-stock-trading-alert/config.py
+day_36-stock-trading-alert/test.py
+
+day_37-habit-tracker/config.py
+day_38-workout-tracker/config.py
+day_38-workout-tracker/test.py
+flight-deal-finder/config.py

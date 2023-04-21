@@ -1,30 +1,106 @@
-# 😎 Things I have added here so far:
-- Rain Alert Program ☔ (Day 35)
-- Quizzler App ⁉️ (Day 34)
-- Day 33 (Learn about API and create a **ISS Overhead Notifier** and a **Kanye Quote Program**)
-- Day 32 📧 (Learn e-mail sending with **Smtplib** and do monday-motivation sender and *automated-birthday-wisher*)
-- Flash Card App 📑 (Day 31)
-- Day 30 work (in **features** branch) (Add json and search feature in password manager)
-- Password Manager GUI 🔑 (Day 29)
-- Pomodora Timer⏰ (Day 28)
-- Day 27 work (Tkinter, optional arguments, *args, **kwargs)
-- Day 26 work (List, dict comprehension and the **NATO phonetic alphabet challenge**)
-- Day 25 work (Reading CSV, Pandas and the US states game)
-- Mail Merge Challenge ✉(Day 24) ***~~BTW There is a small typo in the commit b7f9b53507e4c2a2f774372bacd9fbea67d83c92~~***
-- Turtle Crossing 🚸 (Day 23)
-- The Pong Game 🕹️ (Day 22)
-- The Snake Game 🐍 (Day 20 and 21)
-- Day 19 work (Including turtle race)
-- Day 18 work (Including hirst challenge)
-- Day 17 work (Quiz Game)
-- Day 16 work 
-- Coffee Machine ☕
-- Higherlower Game
-- Blackjack Game 🃏
+# About 👨‍💻
+***This repository is about my Python learning and projects I have created***
+
+______________________
+
+## Things I have added here so far 💻
+- ### [Flight Club and Flight Deal Finder (Day 39 and 40)](https://replit.com/@damsithbrosl/Flight-Club?v=1)
+   - In this completed version, users can enter their details in a replit and the program updates the details into a google sheet
+
+   - Summary - The program checks for flights (In the period of tomorrow to next 6 months) to specific locations in a google sheet,
+                                        if the actual price of a flight is cheaper than the price in google sheet then
+                                         send a email with relevent information to the emails that are in a google sheet
+   - Note - The departure location of the flights is, Colombo (IATA Code - CMB) and the default value for maximum stop-overs is 1
+   
+- ### Workout Tracker with Google Sheets 💪 (Day 38)
+   - In this program, user can input the exercises they did along with durations
+     and then those data is sent to a API through POST method, the API returns some data (eg - How much calories spent).
+     After that, the program asks the user the date and time they did those exercises
+     Finally, the program updates a google sheet via another API with the following data:
+                 1. Date
+                 2. Time
+                 3. Exercise (eg :- Push-up)
+                 4. Duration
+                 5. Calories
+   - Note - Don't assume the calory count to be 100% accurate because defining the calory count may differ from person to person
+
+- ### [Habit Tracker](https://pixe.la/v1/users/damsithbrosl/graphs/graph1.html) 🧘 (Day 37)
+   - Via this program, I'm going to update my meditation time periods
+     You can see those in https://pixe.la/v1/users/damsithbrosl/graphs/graph1.html
+
+- ### Stock Trading Alert Program 📈 (Day 36)
+   - Summary - The program checks the percentage between yesterday's closing value and day before yesterday's closing value of TSLA (Tesla Inc) company.
+          If the percantage is greater than 5% or if it is smaller than -5%, program gets data from news API.
+          And then it sends the top 3 news pieces to the desired email via smtplib
+   - Problems - The stock updates seem to be quite late. And I assume they are updated in evening (I'm in Colombo Time Zone)
+
+- ### Rain Alert Program ☔ (Day 35)
+   - Summary - In this program, it checks if it will rain in next 12 hours via openweathermap API
+          and if it predicts that it will rain in next 12 hours an e-mail is sent saying 'Bring An Umbrella'
+
+- ### Quizzler App ⁉️ (Day 34)
+   - This is a upgraded version of day 17 quiz game
+   - Uses a GUI instead of text inputs
+   - Uses questions from random topics via Trivia API
+
+- ### Day 33 (Learn about API and create a **ISS Overhead Notifier** and a **Kanye Quote Program**)
+  - In this program, an e-mail is sent if the International Space Station near me and if it is currently dark
+  - In this commit, I created two functions 'is_iss_above_me()' and 'it_is_dark_now()', so that the code is more readable and easy to understand
+  - Note: I think there is a minor problem with the sunrise-sunset API used in this program
+
+
+- ### Day 32 📧 (Learn e-mail sending with **Smtplib** and do monday-motivation sender and *automated-birthday-wisher*)
+
+- ### Flash Card App 📑 (Day 31)
+  - This is a simple flash card app that allows the user to test their French words memory. The user can interact with the program using the buttons.
+  - In this program the user can select whether they already know the current word or not by simply clicking the right button or the wrong button.
+  - If the user clicks the right button, the row containing that word and it's translation will be deleted from the words_to_learn.csv.
+  - So after that the program would only show the words in words_to_learn.csv and it wouldn't show the words that the user already knows.
+  - If the user runs the program for the first time or the words_to_learn.csv file is deleted, the program would consider all the words are unknown.
+
+- ### Day 30 work (in **features** branch) (Add json and search feature in password manager)
+- ### Password Manager GUI 🔑 (Day 29)
+- ### Pomodora Timer⏰ (Day 28)
+- ### Day 27 work (Tkinter, optional arguments, *args, **kwargs)
+- ### Day 26 work (List, dict comprehension and the **NATO phonetic alphabet challenge**)
+- ### Day 25 work (Reading CSV, Pandas and the US states game)
+- ### Mail Merge Challenge ✉(Day 24) ***~~BTW There is a small typo in the commit b7f9b53507e4c2a2f774372bacd9fbea67d83c92~~***
+- ### Turtle Crossing 🚸 (Day 23)
+- ### The Pong Game 🕹️ (Day 22)
+- ### The Snake Game 🐍 (Day 20 and 21)
+- ### Day 19 work (Including turtle race)
+- ### Day 18 work (Including hirst challenge)
+- ### Day 17 work (Quiz Game)
+- ### Day 16 work 
+- ### Coffee Machine ☕
+- ### Higherlower Game
+- ### Blackjack Game 🃏
 
 ______
 
 ## Pictures of my projects 🖼️
+
+
+- Day 39 and 40
+
+![image](https://user-images.githubusercontent.com/113516635/233313934-d2fed658-267e-42e3-a590-abc5be28190c.png)
+![image](https://user-images.githubusercontent.com/113516635/233312932-2d31cf01-fa7f-4e6d-8dc8-6c00f7521ef1.png)
+![image](https://user-images.githubusercontent.com/113516635/233313423-8460e0dd-2235-424f-bdd6-461be63a76e9.png)
+![image](https://user-images.githubusercontent.com/113516635/233313545-04a4b544-2035-495c-a1b0-cbe707c4fe28.png)
+
+
+
+- Day 38
+
+![image](https://user-images.githubusercontent.com/113516635/230778117-21d0a18f-5274-407b-8258-a2bdc0c17939.png)
+![image](https://user-images.githubusercontent.com/113516635/230778119-5e92a879-1a7c-4dd8-8437-a2216702b90a.png)
+
+
+- Day 37
+
+![image](https://user-images.githubusercontent.com/113516635/230722417-9bc51e7d-1d92-4da9-beb4-22052ee82231.png)
+
+
 
 - Day 35
 
