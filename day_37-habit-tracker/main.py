@@ -48,7 +48,7 @@ def check_minutes(minutes: float) -> float:
     else:
         return minutes
 
-def submit() -> None or dict:
+def submit():
     """Gets the data from the entry fields and updates them into the graph"""
     day = day_entry.get().lower()
     minutes = minutes_entry.get()
