@@ -1,10 +1,18 @@
 # In this program, we'll be using not only get() but also post()
 # I'm using this to keep track of my meditation
 
+from tkinter import *
 import requests
 import config
 import datetime
 from datetime import timezone
+
+# Got these colors from colorhunt.io
+BG = "#FF6D60"
+LABEL_COLOR = "#F7D060"
+BORDER_COLOR = "#F3E99F"
+IMAGE_BORDER_COLOR = "#98D8AA"
+BUTTON_PRESS_COLOR = "cyan"
 
 PIXELA_ENDPOINT = "https://pixe.la/v1/users"
 
@@ -31,9 +39,13 @@ headers = {"X-USER-TOKEN": config.TOKEN}
 # print(graph_response.text)
 # created the graph
 
+def submit() -> None or dict:
+    """Gets the data from the entry fields and updates them into the graph"""
+    return {"day": day_entry.get(), "minutes": minutes_entry.get()}
+
 # Updating the graph
-day = input("What do you want to update? (day before yesterday or yesterday or today): ").lower()
-minutes = input("How long did you meditate (minutes): ")
+# day = input("What do you want to update? (day before yesterday or yesterday or today): ").lower()
+# minutes = input("How long did you meditate (minutes): ")
 
 if day == 'day before yesterday':
     date = datetime.datetime.now() - datetime.timedelta(days=2)
@@ -48,3 +60,41 @@ update_params = {
 }
 update_response = requests.post(url=f"{PIXELA_ENDPOINT}/{config.USERNAME}/graphs/graph1", json=update_params, headers=headers)
 print(update_response.text)
+
+
+# -------------------------- UI Setup ------------------------------- #
+window = Tk()
+window.title("Habit Tracker")
+window.config(bg=BG, padx=50, pady=50)
+window.update_idletasks()  # update the window size info
+window.minsize(window.winfo_width(), window.winfo_height())
+
+image = PhotoImage(file="meditation.png")
+canvas = Canvas(width=450, height=475)
+image = canvas.create_image(225, 234, image=image)
+canvas.config(highlightbackground=IMAGE_BORDER_COLOR, highlightthickness=10)
+canvas.grid(column=0, row=0)
+
+day_label = Label(text="Which day you want to update: ")
+day_label.config(font=("sans-serif", 16, "bold"), bg=BG, fg=LABEL_COLOR)
+day_label.grid(column=0, row=1, sticky="e")
+
+day_entry = Entry(width=50)
+day_entry.config(highlightcolor=BORDER_COLOR, highlightthickness=3)
+day_entry.focus()
+day_entry.insert(0, "Yesterday")
+day_entry.grid(column=1, row=1, columnspan=2)
+
+minutes_label = Label(text="Number of minutes you meditated (An int or a float is expected): ")
+minutes_label.config(font=("sans-serif", 16, "bold"), bg=BG, fg=LABEL_COLOR)
+minutes_label.grid(column=0, row=2)
+
+minutes_entry = Entry(width=50)
+minutes_entry.config(highlightcolor=BORDER_COLOR, highlightthickness=3)
+minutes_entry.grid(column=1, row=2, columnspan=2)
+
+button = Button(text="Submit")
+button.config(relief="raised", width=45, activebackground=BUTTON_PRESS_COLOR, command=submit)
+button.grid(column=1, row=3)
+
+window.mainloop()
