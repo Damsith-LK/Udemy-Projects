@@ -39,27 +39,35 @@ headers = {"X-USER-TOKEN": config.TOKEN}
 # print(graph_response.text)
 # created the graph
 
+def check_minutes(minutes: float) -> float:
+    """Checks the given minutes and returns it if it is valid. Else returns 0"""
+    if minutes == 0:
+        return 0
+    elif minutes < 0:
+        return abs(minutes)
+    else:
+        return minutes
+
 def submit() -> None or dict:
     """Gets the data from the entry fields and updates them into the graph"""
-    return {"day": day_entry.get(), "minutes": minutes_entry.get()}
+    day = day_entry.get().lower()
+    minutes = minutes_entry.get()
+    window.destroy()
+    # Updating the graph
 
-# Updating the graph
-# day = input("What do you want to update? (day before yesterday or yesterday or today): ").lower()
-# minutes = input("How long did you meditate (minutes): ")
+    if day == 'day before yesterday':
+        date = datetime.datetime.now() - datetime.timedelta(days=2)
+    elif day == "yesterday":
+        date = datetime.datetime.now() - datetime.timedelta(days=1)
+    else:
+        date = datetime.datetime.now()
 
-if day == 'day before yesterday':
-    date = datetime.datetime.now() - datetime.timedelta(days=2)
-elif day == "yesterday":
-    date = datetime.datetime.now() - datetime.timedelta(days=1)
-else:
-    date = datetime.datetime.now()
-
-update_params = {
-    "date": str(date.strftime("%Y%m%d")),
-    "quantity": str(minutes)
-}
-update_response = requests.post(url=f"{PIXELA_ENDPOINT}/{config.USERNAME}/graphs/graph1", json=update_params, headers=headers)
-print(update_response.text)
+    update_params = {
+        "date": str(date.strftime("%Y%m%d")),
+        "quantity": str(check_minutes(float(minutes)))
+    }
+    update_response = requests.post(url=f"{PIXELA_ENDPOINT}/{config.USERNAME}/graphs/graph1", json=update_params, headers=headers)
+    print(update_response.text)
 
 
 # -------------------------- UI Setup ------------------------------- #
@@ -68,12 +76,6 @@ window.title("Habit Tracker")
 window.config(bg=BG, padx=50, pady=50)
 window.update_idletasks()  # update the window size info
 window.minsize(window.winfo_width(), window.winfo_height())
-
-image = PhotoImage(file="meditation.png")
-canvas = Canvas(width=450, height=475)
-image = canvas.create_image(225, 234, image=image)
-canvas.config(highlightbackground=IMAGE_BORDER_COLOR, highlightthickness=10)
-canvas.grid(column=0, row=0)
 
 day_label = Label(text="Which day you want to update: ")
 day_label.config(font=("sans-serif", 16, "bold"), bg=BG, fg=LABEL_COLOR)
