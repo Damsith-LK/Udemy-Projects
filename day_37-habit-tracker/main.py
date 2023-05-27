@@ -52,8 +52,6 @@ def submit():
     """Gets the data from the entry fields and updates them into the graph"""
     day = day_entry.get().lower()
     minutes = minutes_entry.get()
-    window.destroy()
-    # Updating the graph
 
     if day == 'day before yesterday':
         date = datetime.datetime.now() - datetime.timedelta(days=2)
@@ -62,12 +60,18 @@ def submit():
     else:
         date = datetime.datetime.now()
 
+    # Updating the graph
     update_params = {
         "date": str(date.strftime("%Y%m%d")),
         "quantity": str(check_minutes(float(minutes)))
     }
     update_response = requests.post(url=f"{PIXELA_ENDPOINT}/{config.USERNAME}/graphs/graph1", json=update_params, headers=headers)
     print(update_response.text)
+
+    # Window will stay alive if the API post is rejected, so user can try again
+    if update_response.json()["isSuccess"]:
+        window.destroy()
+
 
 
 # -------------------------- UI Setup ------------------------------- #
